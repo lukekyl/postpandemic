@@ -1,0 +1,713 @@
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4199493712841275170)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20200609221629)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "message" character varying, "image" character varying, "vote" integer, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200609221629"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-09 22:19:34.587424"], ["updated_at", "2020-06-09 22:19:34.587424"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4199493712841275170)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (2.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", ""], ["message", ""], ["image", ""], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 02:03:43.868859"], ["updated_at", "2020-06-10 02:03:43.868859"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2020-06-09 20:04:29 -0600
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.8ms | Allocations: 480)
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 2633)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2020-06-09 20:04:29 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts" for 127.0.0.1 at 2020-06-09 20:04:33 -0600
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for PostsController):
+  
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4199493712841275170)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4199493712841275170)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Song Bird"], ["message", "Hope is the thing with feathers. That perches in the soul. And sings the tune without the words. And never stops, at all."], ["image", "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.846563"], ["updated_at", "2020-06-10 04:01:39.846563"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Child"], ["message", "But how do we fashion the future? Who can say how except in the minds of those who will call it Now? The children. The children."], ["image", "https://images.unsplash.com/photo-1471914036897-d8255336ca8a"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.853095"], ["updated_at", "2020-06-10 04:01:39.853095"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Journey"], ["message", "We were never perfect. Yet, the journey we make together is perfect on this earth who was once a star and made the same mistakes as humans."], ["image", "https://images.unsplash.com/photo-1519811170192-85eadc19f786"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.856814"], ["updated_at", "2020-06-10 04:01:39.856814"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Security"], ["message", "For our own sake and for the sake of those who will come after us. There is a better future, And we can secure it."], ["image", "https://images.unsplash.com/photo-1546277627-4a35a9b5888d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.860333"], ["updated_at", "2020-06-10 04:01:39.860333"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Fight"], ["message", "For once we see something worse than war, for once we see humanity is worth fighting for."], ["image", "https://images.unsplash.com/photo-1529673736833-9302d731fc8f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.864382"], ["updated_at", "2020-06-10 04:01:39.864382"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Tech Overload"], ["message", "Computer marching forward, technology. Its advancing far too fast, why cant we see? Covid to the rescue, youll see!"], ["image", "https://images.unsplash.com/photo-1510751190565-de07085fcad6"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.867878"], ["updated_at", "2020-06-10 04:01:39.867878"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Bad Habits"], ["message", "Cease from polluting. Cease from too much buying. Give it up, not just for now."], ["image", "https://images.unsplash.com/photo-1542203519-615a6fb5710c"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.885486"], ["updated_at", "2020-06-10 04:01:39.885486"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Dirty Mistake"], ["message", "Pollution. Dirty, smelly. Growing, destroying, overtaking. Making the world unsafe. If only we could have an excuse to see our mistakes."], ["image", "https://images.unsplash.com/photo-1517925035435-7976539b920d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.889016"], ["updated_at", "2020-06-10 04:01:39.889016"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Birds Return"], ["message", "Yes there is fear. Yes there is isolation. Yes there is sickness. Yes there is even death. But, after so many years of noise, we can hear the birds again."], ["image", "https://images.unsplash.com/photo-1512658740823-0ebb97b3b86e"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.892586"], ["updated_at", "2020-06-10 04:01:39.892586"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Healing Sky"], ["message", "They say that after just a few weeks of quiet. The sky is no longer thick with fumes. But blue and grey and clear."], ["image", "https://images.unsplash.com/photo-1441205188609-b875e92a9807"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.896755"], ["updated_at", "2020-06-10 04:01:39.896755"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Reflection"], ["message", "All over the world people are slowing down and reflecting. All over the world people are waking up to a new reality. To what really matters. To Love."], ["image", "https://images.unsplash.com/photo-1514668899050-f91140ee495b"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.900466"], ["updated_at", "2020-06-10 04:01:39.900466"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Love Prevails"], ["message", "The birds are singing again. The sky is clearing. Spring is coming. And we are always encompassed by Love."], ["image", "https://images.unsplash.com/photo-1516589091380-5d8e87df6999"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.904083"], ["updated_at", "2020-06-10 04:01:39.904083"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Sing The Song"], ["message", "Open the windows of your soul. And though you may not be able to touch across the empty square, Sing!"], ["image", "https://images.unsplash.com/photo-1499689496495-5bdf4421b725"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.907699"], ["updated_at", "2020-06-10 04:01:39.907699"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Songs"], ["message", "In the midst of this historic menace, a brief burst of light points to the future. Let us joyfully sing this song of a splendid future."], ["image", "https://images.unsplash.com/photo-1545315003-c5ad6226c272"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.911232"], ["updated_at", "2020-06-10 04:01:39.911232"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Fonder Heart"], ["message", "Know that this distance will make our hearts grow fonder. From a wave of woes our world will emerge stronger."], ["image", "https://images.unsplash.com/photo-1514564079764-600734e1e9b9"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.915468"], ["updated_at", "2020-06-10 04:01:39.915468"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Testing Times"], ["message", "When this ends, we will smile sweetly, finally seeing, that in testing times, we became the best of beings."], ["image", "https://images.unsplash.com/photo-1501139083538-0139583c060f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:01:39.919068"], ["updated_at", "2020-06-10 04:01:39.919068"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4199493712841275170)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4199493712841275170)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (33.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4199493712841275170)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20200609221629)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "message" character varying, "image" character varying, "vote" integer, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200609221629"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-10 04:29:00.603357"], ["updated_at", "2020-06-10 04:29:00.603357"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4199493712841275170)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Song Bird"], ["message", "Hope is the thing with feathers. That perches in the soul. And sings the tune without the words. And never stops, at all."], ["image", "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.294905"], ["updated_at", "2020-06-10 04:29:07.294905"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Child"], ["message", "But how do we fashion the future? Who can say how except in the minds of those who will call it Now? The children. The children."], ["image", "https://images.unsplash.com/photo-1471914036897-d8255336ca8a"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.301757"], ["updated_at", "2020-06-10 04:29:07.301757"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Journey"], ["message", "We were never perfect. Yet, the journey we make together is perfect on this earth who was once a star and made the same mistakes as humans."], ["image", "https://images.unsplash.com/photo-1519811170192-85eadc19f786"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.305451"], ["updated_at", "2020-06-10 04:29:07.305451"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Security"], ["message", "For our own sake and for the sake of those who will come after us. There is a better future, And we can secure it."], ["image", "https://images.unsplash.com/photo-1546277627-4a35a9b5888d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.309012"], ["updated_at", "2020-06-10 04:29:07.309012"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Fight"], ["message", "For once we see something worse than war, for once we see humanity is worth fighting for."], ["image", "https://images.unsplash.com/photo-1529673736833-9302d731fc8f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.312450"], ["updated_at", "2020-06-10 04:29:07.312450"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Tech Overload"], ["message", "Computer marching forward, technology. Its advancing far too fast, why cant we see? Covid to the rescue, youll see!"], ["image", "https://images.unsplash.com/photo-1510751190565-de07085fcad6"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.315797"], ["updated_at", "2020-06-10 04:29:07.315797"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Bad Habits"], ["message", "Cease from polluting. Cease from too much buying. Give it up, not just for now."], ["image", "https://images.unsplash.com/photo-1542203519-615a6fb5710c"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.319265"], ["updated_at", "2020-06-10 04:29:07.319265"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Dirty Mistake"], ["message", "Pollution. Dirty, smelly. Growing, destroying, overtaking. Making the world unsafe. If only we could have an excuse to see our mistakes."], ["image", "https://images.unsplash.com/photo-1517925035435-7976539b920d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.324260"], ["updated_at", "2020-06-10 04:29:07.324260"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Birds Return"], ["message", "Yes there is fear. Yes there is isolation. Yes there is sickness. Yes there is even death. But, after so many years of noise, we can hear the birds again."], ["image", "https://images.unsplash.com/photo-1512658740823-0ebb97b3b86e"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.327228"], ["updated_at", "2020-06-10 04:29:07.327228"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Healing Sky"], ["message", "They say that after just a few weeks of quiet. The sky is no longer thick with fumes. But blue and grey and clear."], ["image", "https://images.unsplash.com/photo-1441205188609-b875e92a9807"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.330188"], ["updated_at", "2020-06-10 04:29:07.330188"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Reflection"], ["message", "All over the world people are slowing down and reflecting. All over the world people are waking up to a new reality. To what really matters. To Love."], ["image", "https://images.unsplash.com/photo-1514668899050-f91140ee495b"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.333426"], ["updated_at", "2020-06-10 04:29:07.333426"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Love Prevails"], ["message", "The birds are singing again. The sky is clearing. Spring is coming. And we are always encompassed by Love."], ["image", "https://images.unsplash.com/photo-1516589091380-5d8e87df6999"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.336262"], ["updated_at", "2020-06-10 04:29:07.336262"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Sing The Song"], ["message", "Open the windows of your soul. And though you may not be able to touch across the empty square, Sing!"], ["image", "https://images.unsplash.com/photo-1499689496495-5bdf4421b725"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.350524"], ["updated_at", "2020-06-10 04:29:07.350524"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Songs"], ["message", "In the midst of this historic menace, a brief burst of light points to the future. Let us joyfully sing this song of a splendid future."], ["image", "https://images.unsplash.com/photo-1545315003-c5ad6226c272"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.354114"], ["updated_at", "2020-06-10 04:29:07.354114"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Fonder Heart"], ["message", "Know that this distance will make our hearts grow fonder. From a wave of woes our world will emerge stronger."], ["image", "https://images.unsplash.com/photo-1514564079764-600734e1e9b9"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.357223"], ["updated_at", "2020-06-10 04:29:07.357223"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Testing Times"], ["message", "When this ends, we will smile sweetly, finally seeing, that in testing times, we became the best of beings."], ["image", "https://images.unsplash.com/photo-1501139083538-0139583c060f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 04:29:07.360336"], ["updated_at", "2020-06-10 04:29:07.360336"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (145.2ms)[0m  [1m[35mCREATE DATABASE "reactfinal_development" ENCODING = 'unicode'[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2090717262818535645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20200609221629)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "message" character varying, "image" character varying, "vote" integer, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200609221629"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-10 13:36:37.034885"], ["updated_at", "2020-06-10 13:36:37.034885"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2090717262818535645)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (32.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reactfinal_development"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reactfinal_development"[0m
+  [1m[35m (132.3ms)[0m  [1m[35mCREATE DATABASE "reactfinal_development" ENCODING = 'unicode'[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2090717262818535645)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20200609221629)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "message" character varying, "image" character varying, "vote" integer, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200609221629"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-10 13:38:09.464734"], ["updated_at", "2020-06-10 13:38:09.464734"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2090717262818535645)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Song Bird"], ["message", "Hope is the thing with feathers. That perches in the soul. And sings the tune without the words. And never stops, at all."], ["image", "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.045667"], ["updated_at", "2020-06-10 13:38:18.045667"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Child"], ["message", "But how do we fashion the future? Who can say how except in the minds of those who will call it Now? The children. The children."], ["image", "https://images.unsplash.com/photo-1471914036897-d8255336ca8a"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.052547"], ["updated_at", "2020-06-10 13:38:18.052547"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Journey"], ["message", "We were never perfect. Yet, the journey we make together is perfect on this earth who was once a star and made the same mistakes as humans."], ["image", "https://images.unsplash.com/photo-1519811170192-85eadc19f786"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.055798"], ["updated_at", "2020-06-10 13:38:18.055798"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Security"], ["message", "For our own sake and for the sake of those who will come after us. There is a better future, And we can secure it."], ["image", "https://images.unsplash.com/photo-1546277627-4a35a9b5888d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.059367"], ["updated_at", "2020-06-10 13:38:18.059367"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Fight"], ["message", "For once we see something worse than war, for once we see humanity is worth fighting for."], ["image", "https://images.unsplash.com/photo-1529673736833-9302d731fc8f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.062978"], ["updated_at", "2020-06-10 13:38:18.062978"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Tech Overload"], ["message", "Computer marching forward, technology. Its advancing far too fast, why cant we see? Covid to the rescue, youll see!"], ["image", "https://images.unsplash.com/photo-1510751190565-de07085fcad6"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.066392"], ["updated_at", "2020-06-10 13:38:18.066392"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Bad Habits"], ["message", "Cease from polluting. Cease from too much buying. Give it up, not just for now."], ["image", "https://images.unsplash.com/photo-1542203519-615a6fb5710c"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.083446"], ["updated_at", "2020-06-10 13:38:18.083446"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Dirty Mistake"], ["message", "Pollution. Dirty, smelly. Growing, destroying, overtaking. Making the world unsafe. If only we could have an excuse to see our mistakes."], ["image", "https://images.unsplash.com/photo-1517925035435-7976539b920d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.086836"], ["updated_at", "2020-06-10 13:38:18.086836"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Birds Return"], ["message", "Yes there is fear. Yes there is isolation. Yes there is sickness. Yes there is even death. But, after so many years of noise, we can hear the birds again."], ["image", "https://images.unsplash.com/photo-1512658740823-0ebb97b3b86e"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.090093"], ["updated_at", "2020-06-10 13:38:18.090093"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Healing Sky"], ["message", "They say that after just a few weeks of quiet. The sky is no longer thick with fumes. But blue and grey and clear."], ["image", "https://images.unsplash.com/photo-1441205188609-b875e92a9807"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.093713"], ["updated_at", "2020-06-10 13:38:18.093713"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Reflection"], ["message", "All over the world people are slowing down and reflecting. All over the world people are waking up to a new reality. To what really matters. To Love."], ["image", "https://images.unsplash.com/photo-1514668899050-f91140ee495b"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.097565"], ["updated_at", "2020-06-10 13:38:18.097565"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Love Prevails"], ["message", "The birds are singing again. The sky is clearing. Spring is coming. And we are always encompassed by Love."], ["image", "https://images.unsplash.com/photo-1516589091380-5d8e87df6999"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.100650"], ["updated_at", "2020-06-10 13:38:18.100650"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Sing The Song"], ["message", "Open the windows of your soul. And though you may not be able to touch across the empty square, Sing!"], ["image", "https://images.unsplash.com/photo-1499689496495-5bdf4421b725"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.103479"], ["updated_at", "2020-06-10 13:38:18.103479"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Songs"], ["message", "In the midst of this historic menace, a brief burst of light points to the future. Let us joyfully sing this song of a splendid future."], ["image", "https://images.unsplash.com/photo-1545315003-c5ad6226c272"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.106536"], ["updated_at", "2020-06-10 13:38:18.106536"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Fonder Heart"], ["message", "Know that this distance will make our hearts grow fonder. From a wave of woes our world will emerge stronger."], ["image", "https://images.unsplash.com/photo-1514564079764-600734e1e9b9"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.110022"], ["updated_at", "2020-06-10 13:38:18.110022"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Testing Times"], ["message", "When this ends, we will smile sweetly, finally seeing, that in testing times, we became the best of beings."], ["image", "https://images.unsplash.com/photo-1501139083538-0139583c060f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:38:18.113034"], ["updated_at", "2020-06-10 13:38:18.113034"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (29.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reactfinal_development"[0m
+  [1m[35m (146.4ms)[0m  [1m[35mCREATE DATABASE "reactfinal_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (27.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reactfinal_development"[0m
+  [1m[35m (169.6ms)[0m  [1m[35mCREATE DATABASE "reactfinal_development" ENCODING = 'unicode'[0m
+  [1m[35m (63.3ms)[0m  [1m[35mCREATE DATABASE "reactfinal_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2090717262818535645)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20200609221629)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "message" character varying, "image" character varying, "vote" integer, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200609221629"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-10 13:55:13.337579"], ["updated_at", "2020-06-10 13:55:13.337579"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2090717262818535645)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Song Bird"], ["message", "Hope is the thing with feathers. That perches in the soul. And sings the tune without the words. And never stops, at all."], ["image", "https://images.unsplash.com/photo-1522926193341-e9ffd686c60f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.426615"], ["updated_at", "2020-06-10 13:55:18.426615"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Child"], ["message", "But how do we fashion the future? Who can say how except in the minds of those who will call it Now? The children. The children."], ["image", "https://images.unsplash.com/photo-1471914036897-d8255336ca8a"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.431554"], ["updated_at", "2020-06-10 13:55:18.431554"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Journey"], ["message", "We were never perfect. Yet, the journey we make together is perfect on this earth who was once a star and made the same mistakes as humans."], ["image", "https://images.unsplash.com/photo-1519811170192-85eadc19f786"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.435220"], ["updated_at", "2020-06-10 13:55:18.435220"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Security"], ["message", "For our own sake and for the sake of those who will come after us. There is a better future, And we can secure it."], ["image", "https://images.unsplash.com/photo-1546277627-4a35a9b5888d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.438616"], ["updated_at", "2020-06-10 13:55:18.438616"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Fight"], ["message", "For once we see something worse than war, for once we see humanity is worth fighting for."], ["image", "https://images.unsplash.com/photo-1529673736833-9302d731fc8f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.455783"], ["updated_at", "2020-06-10 13:55:18.455783"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Tech Overload"], ["message", "Computer marching forward, technology. Its advancing far too fast, why cant we see? Covid to the rescue, youll see!"], ["image", "https://images.unsplash.com/photo-1510751190565-de07085fcad6"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.459306"], ["updated_at", "2020-06-10 13:55:18.459306"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Bad Habits"], ["message", "Cease from polluting. Cease from too much buying. Give it up, not just for now."], ["image", "https://images.unsplash.com/photo-1542203519-615a6fb5710c"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.462405"], ["updated_at", "2020-06-10 13:55:18.462405"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Dirty Mistake"], ["message", "Pollution. Dirty, smelly. Growing, destroying, overtaking. Making the world unsafe. If only we could have an excuse to see our mistakes."], ["image", "https://images.unsplash.com/photo-1517925035435-7976539b920d"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.465652"], ["updated_at", "2020-06-10 13:55:18.465652"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Birds Return"], ["message", "Yes there is fear. Yes there is isolation. Yes there is sickness. Yes there is even death. But, after so many years of noise, we can hear the birds again."], ["image", "https://images.unsplash.com/photo-1512658740823-0ebb97b3b86e"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.469827"], ["updated_at", "2020-06-10 13:55:18.469827"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Healing Sky"], ["message", "They say that after just a few weeks of quiet. The sky is no longer thick with fumes. But blue and grey and clear."], ["image", "https://images.unsplash.com/photo-1441205188609-b875e92a9807"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.472820"], ["updated_at", "2020-06-10 13:55:18.472820"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Reflection"], ["message", "All over the world people are slowing down and reflecting. All over the world people are waking up to a new reality. To what really matters. To Love."], ["image", "https://images.unsplash.com/photo-1514668899050-f91140ee495b"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.475874"], ["updated_at", "2020-06-10 13:55:18.475874"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Love Prevails"], ["message", "The birds are singing again. The sky is clearing. Spring is coming. And we are always encompassed by Love."], ["image", "https://images.unsplash.com/photo-1516589091380-5d8e87df6999"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.478971"], ["updated_at", "2020-06-10 13:55:18.478971"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Sing The Song"], ["message", "Open the windows of your soul. And though you may not be able to touch across the empty square, Sing!"], ["image", "https://images.unsplash.com/photo-1499689496495-5bdf4421b725"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.482056"], ["updated_at", "2020-06-10 13:55:18.482056"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Future Songs"], ["message", "In the midst of this historic menace, a brief burst of light points to the future. Let us joyfully sing this song of a splendid future."], ["image", "https://images.unsplash.com/photo-1545315003-c5ad6226c272"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.485719"], ["updated_at", "2020-06-10 13:55:18.485719"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Fonder Heart"], ["message", "Know that this distance will make our hearts grow fonder. From a wave of woes our world will emerge stronger."], ["image", "https://images.unsplash.com/photo-1514564079764-600734e1e9b9"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.489208"], ["updated_at", "2020-06-10 13:55:18.489208"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Testing Times"], ["message", "When this ends, we will smile sweetly, finally seeing, that in testing times, we became the best of beings."], ["image", "https://images.unsplash.com/photo-1501139083538-0139583c060f"], ["vote", 0], ["date", "2020-06-10 00:20:20"], ["created_at", "2020-06-10 13:55:18.492603"], ["updated_at", "2020-06-10 13:55:18.492603"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-06-10 15:55:25 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 317)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 1600)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-06-10 15:55:25 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2020-06-10 15:55:28 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 200 OK in 36ms (Views: 18.6ms | ActiveRecord: 14.2ms | Allocations: 9719)
+
+
+Started GET "/" for ::1 at 2020-06-10 16:57:32 -0600
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kyle.luke/.rvm/gems/ruby-2.6.3/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 317)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 1600)
+
+
+Started GET "/posts" for ::1 at 2020-06-10 16:57:36 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.78ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 9.7ms | Allocations: 13613)
+
+
+  
+NoMethodError (undefined method `votes' for #<Post:0x00007fb539b74e18>
+Did you mean?  vote
+               vote?
+               vote=):
+  
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:20:37 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.82ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 1.0ms | Allocations: 9575)
+
+
+Started GET "/posts" for ::1 at 2020-06-10 17:27:43 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms | Allocations: 6733)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { object.vote.strftime "%B %d,...
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+...ect.vote.strftime "%B %d, %Y" }
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:28:31 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 20.5ms | Allocations: 6931)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { Post.vote.strftime "%B %d, %...
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+...ost.vote.strftime "%B %d, %Y" }
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:28:44 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.0ms | Allocations: 6887)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { self.vote.strftime "%B %d, %...
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+...elf.vote.strftime "%B %d, %Y" }
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:29:10 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 6.8ms | Allocations: 6887)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { vote: strftime "%B %d, %Y" }
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+... { vote: strftime "%B %d, %Y" }
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:36:36 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.9ms | Allocations: 6730)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { vote: self.vote.strftime "%B...
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+...elf.vote.strftime "%B %d, %Y" }
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:37:04 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 9.7ms | Allocations: 6911)
+
+
+  
+SyntaxError (/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+  attribute :vote { vote: self.vote.strftime("%B...
+                  ^
+/Users/kyle.luke/Development/code/react-portfolio-project/backend/app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+...elf.vote.strftime("%B %d, %Y")}
+...                              ^):
+  
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '{', expecting end
+app/serializers/post_serializer.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:40:27 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.16ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.2ms | Allocations: 8590)
+
+
+  
+NoMethodError (undefined method `vote' for #<PostSerializer:0x00007fb539bb6c50>):
+  
+app/serializers/post_serializer.rb:6:in `block in <class:PostSerializer>'
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:40:45 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.68ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 6.5ms | Allocations: 8784)
+
+
+  
+NoMethodError (undefined method `strftime' for 0:Integer):
+  
+app/serializers/post_serializer.rb:6:in `block in <class:PostSerializer>'
+app/controllers/posts_controller.rb:5:in `index'
+Started GET "/posts" for ::1 at 2020-06-10 17:41:05 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.39ms)
+Completed 200 OK in 23ms (Views: 14.7ms | ActiveRecord: 7.2ms | Allocations: 9595)
+
+
+Started GET "/posts" for ::1 at 2020-06-10 17:41:14 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.58ms)
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 5.5ms | Allocations: 9692)
+
+
+Started GET "/posts" for ::1 at 2020-06-10 17:41:44 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.88ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms | Allocations: 3802)
+
+
+Started GET "/posts" for ::1 at 2020-06-10 17:42:06 -0600
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.35ms)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 5.9ms | Allocations: 9729)
+
+
