@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPosts } from './actions/fetchPosts'
 import { Container } from 'react-bootstrap'
 import PostsContainer from './containers/posts/PostsContainer'
+import NavContainer from './containers/nav/NavContainer'
 
 class App extends Component {
 
@@ -14,12 +15,12 @@ class App extends Component {
   render() {
 
     return (
-      <Container className="App">
-        <h1>Hello World</h1>
-        {/* Add Navigation Component - Has Search Bar that on click directs to Search Container */}
+      <React.Fragment>
+        <NavContainer />
+        
         {/* Add Hero Title Component - Probably a Bootstrap component? */}
         <PostsContainer posts={this.props.posts} />
-      </Container>
+      </React.Fragment>
       )
   };
 }

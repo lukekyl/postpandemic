@@ -1,4 +1,10 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
   display:flex;
   flex-wrap: nowrap;
   align-content: center;
@@ -12,6 +18,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height:100vh;
+}
+
+.App {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container_Wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.Container_Absolute {
+    top: 0;
+    left: 0;
+    position: fixed;
+    touch-action: none;
+}
+
+.Container_Center {
+    display: grid;
+    place-items: center;
+}
+
+
 
 .Post {
   overflow:hidden;
@@ -21,4 +67,45 @@ body {
 .Post img {
   height:150px;
   width:300px;
+}
+
+
+.Nav_Container {
+    position: fixed;
+    padding: 2vmax;
+    z-index: 50;
+}
+
+.Nav_Top {
+  top: 0;
+}
+
+.Nav_Left {
+  left: 0;
+}
+
+.Nav_Right {
+  right: 0;
+}
+
+.Nav_Bottom {
+  bottom: 0;
+}
+
+.FilterBar {
+  width: 20%;
+}
+
+.SearchHome {
+  width: 20%;
+}
+
+
+
+.SearchContainer {
+  width: 75%;
+}
+
+.AddPost {
+
 }
