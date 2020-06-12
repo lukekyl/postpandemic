@@ -5,9 +5,12 @@ import App from './App';
 
 import managePost from './reducers/managePost'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 
-const store = createStore(managePost)
+const store = createStore(managePost, applyMiddleware(thunk))
+
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 ReactDOM.render(
   <Provider store={store}>

@@ -7,6 +7,7 @@ class PostsContainer extends Component {
         return (
             <div className="PostsContainer">
                 Home Page Floating Posts Container
+                <Posts posts={this.props.posts} />
             </div>
         )
     };

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { fetchPosts } from './actions/fetchPosts'
 import PostsContainer from './containers/posts/PostsContainer'
-import './App.css';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
+
+
   render() {
 
     return (

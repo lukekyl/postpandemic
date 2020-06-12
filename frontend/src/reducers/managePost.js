@@ -1,12 +1,34 @@
-
-import uuid from 'uuid';
+import uuid from 'react-uuid';
 
 export default function managePosts(state = {
     posts: [],
+    loading: false
 }, action) {
 
 
     switch (action.type) {
+        
+        case 'LOADING_POSTS':
+
+            console.log('Loading Posts...')
+
+            return {
+                ...state,
+                posts: [...state.posts],
+                loading: true
+            }
+
+        case 'ADD_POSTS':
+
+            console.log(action.posts)
+            const posts = action.posts
+
+            return {
+                ...state,
+                posts: posts,
+                loading: false
+            }
+
         case 'ADD_POST':
 
             const post = {
@@ -15,12 +37,12 @@ export default function managePosts(state = {
                 message: action.message,
                 date: action.date,
                 vote: action.vote,
-                id: uuid()
+                id: action.id
             }
 
             console.log(post)
 
-            return { ...state, posts: [...state.posts, post] }
+            return { ...state, posts: [...state.posts, post], loading: false }
 
         // case 'DELETE_RESTAURANT':
 
