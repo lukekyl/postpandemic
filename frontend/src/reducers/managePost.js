@@ -2,21 +2,25 @@
 import uuid from 'uuid';
 
 export default function managePosts(state = {
-    postss: [],
+    posts: [],
 }, action) {
 
 
     switch (action.type) {
-        // case 'ADD_RESTAURANT':
+        case 'ADD_POST':
 
-        //     const restaurant = {
-        //         text: action.text,
-        //         id: uuid()
-        //     }
+            const post = {
+                title: action.title,
+                image: action.image,
+                message: action.message,
+                date: action.date,
+                vote: action.vote,
+                id: uuid()
+            }
 
-        //     console.log(restaurant)
+            console.log(post)
 
-        //     return { ...state, restaurants: [...state.restaurants, restaurant] }
+            return { ...state, posts: [...state.posts, post] }
 
         // case 'DELETE_RESTAURANT':
 
