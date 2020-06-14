@@ -21,8 +21,8 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <NavContainer />
-        <h1>Post Pandemic</h1>
+        <NavContainer/>
+        <h1 className="brand">postpandemic</h1>
         {/* Add Hero Title Component - Probably a Bootstrap component? */}
         <PostsContainer posts={postSelection} />
       </React.Fragment>

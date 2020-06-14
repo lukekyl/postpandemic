@@ -9,7 +9,7 @@ class Posts extends Component {
             let position
             let delay
             let positionArray = ['1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%']
-            let delayArray = ['0s', '2s', '4s', '2s', '0s', '4.5s', '6.5s', '8.5s', '6.5s', '4.5s', '9s', '11s', '13s', '11s', '9s']
+            let delayArray = ['12s', '4s', '16s', '8s', '0s', '32s', '24s', '36s', '28s', '20s', '52s', '44s', '56s', '48s', '40s']
             let i = 0
             return this.props.posts.map(post => {
                 if (i < 15) {

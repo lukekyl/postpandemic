@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  /* background-color: black; */
+  background: rgb(76,1,252);
+  background: linear-gradient(145deg, rgba(76,1,252,1) 0%, rgba(109,9,159,1) 35%, rgba(254,80,0,1) 100%);
+}
+.dark h1 {
+  color: white;
+}
+
 body{
   display:flex;
   flex-wrap: nowrap;
@@ -29,13 +43,13 @@ body{
   justify-content: center;
 }
 
-.App {
+/* .App {
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .Container_Wrapper {
     width: 100%;
@@ -72,6 +86,14 @@ body{
     z-index: 50;
 }
 
+.Nav_Wrapper .brand {
+  font-size: 20px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
 .Nav_Top {
   top: 0;
 }
@@ -99,13 +121,9 @@ body{
 .brand {
   font-family: Arial, Helvetica, sans-serif;
   font-stretch: expanded;
-  font-size: 20px;
   font-weight: bolder;
   color:#000;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-size: 60px;
 }
 
 .SearchContainer {
@@ -113,16 +131,21 @@ body{
 }
 
 .AddPost {
-
+  font-size: 25px;
+  width:15%;
 }
-
+.AddPost svg {
+  position: relative;
+  top: -2px;
+  left: -5px;
+}
 
 /*  Post Falling Animation  */
 
 .Float_Posts {
   position: absolute;
   top: -50%;
-  animation: move 13.5s linear 13.5s infinite;
+  animation: move 20s linear 60s infinite;
 }
 
 @keyframes move {
