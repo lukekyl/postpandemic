@@ -14,12 +14,17 @@ class App extends Component {
 
   render() {
 
+    let posts = this.props.posts
+
+    var size = 15;
+    var postSelection = posts.slice(0, size)
+
     return (
       <React.Fragment>
         <NavContainer />
-        
+        <h1>Post Pandemic</h1>
         {/* Add Hero Title Component - Probably a Bootstrap component? */}
-        <PostsContainer posts={this.props.posts} />
+        <PostsContainer posts={postSelection} />
       </React.Fragment>
       )
   };

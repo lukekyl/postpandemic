@@ -4,10 +4,11 @@ import Posts from '../../components/posts/Posts'
 class PostsContainer extends Component {
     render() {
 
+        let floaty = true;
+
         return (
             <div className="PostsContainer">
-                Home Page Floating Posts Container
-                {/* <Posts posts={this.props.posts} /> */}
+                <Posts classes="Float_Posts Post" posts={this.props.posts} floaty={floaty} />
             </div>
         )
     };

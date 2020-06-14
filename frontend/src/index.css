@@ -16,10 +16,9 @@ body{
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow:hidden;
 }
 
 #root {
@@ -28,8 +27,6 @@ main {
   align-content: center;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height:100vh;
 }
 
 .App {
@@ -58,10 +55,9 @@ main {
 }
 
 
-
 .Post {
   overflow:hidden;
-
+  border-color:#ced4da;
 }
 
 .Post img {
@@ -72,7 +68,7 @@ main {
 
 .Nav_Container {
     position: fixed;
-    padding: 2vmax;
+    margin: 2vmax;
     z-index: 50;
 }
 
@@ -100,7 +96,17 @@ main {
   width: 20%;
 }
 
-
+.brand {
+  font-family: Arial, Helvetica, sans-serif;
+  font-stretch: expanded;
+  font-size: 20px;
+  font-weight: bolder;
+  color:#000;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
 
 .SearchContainer {
   width: 75%;
@@ -108,4 +114,31 @@ main {
 
 .AddPost {
 
+}
+
+
+/*  Post Falling Animation  */
+
+.Float_Posts {
+  position: absolute;
+  top: -50%;
+  animation: move 13.5s linear 13.5s infinite;
+}
+
+@keyframes move {
+  from {
+    top: -50%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    top: -10%;
+  }
+  to {
+    bottom: -10%;
+  }
 }
