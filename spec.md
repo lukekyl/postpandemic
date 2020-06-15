@@ -12,3 +12,25 @@
 - Your Rails API should handle the data persistence with a database. You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
 - Your client-side application should handle the display of data with minimal data manipulation
 - Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
+
+
+
+To Do:
+
+Home Page 
+    - Get animation timer down so no overlapping posts
+    - filter posts by date before slice (newest)
+    - add additional filters to filter bar
+    - add any other additional info to cards (date, votes?)
+
+Show Page
+    - add any additional pieces to show container (back button, next post?)
+    - add votes count and add/remove vote button to card (add vote functionality to managePosts reducer)
+
+Add Post
+
+Search Posts
+
+
+CSS
+    - Post size on home page/show page in % vs px?

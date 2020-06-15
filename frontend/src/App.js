@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from './actions/fetchPosts';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import LoadingContainer from './containers/LoadingContainer'
 import HomeContainer from './containers/HomeContainer'
 import ShowContainer from './containers/show/ShowContainer'
 import SearchContainer from './containers/search/SearchContainer'
@@ -10,23 +13,43 @@ import AddContainer from './containers/add/AddContainer'
 
 class App extends Component {
 
-  
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
 
   render() {
 
-    return (
-      <Router>
-      <React.Fragment>
-        
-            <Route exact path="/" component={HomeContainer} />
-            <Route path="/posts" component={ShowContainer} />
-            <Route path="/search" component={SearchContainer} />
-            <Route exact path="/new" component={AddContainer} />
-        
-      </React.Fragment>
-      </Router>
+    let posts = this.props.posts
+    if (posts.length) {
+      return (
+        <Router>
+        <React.Fragment>
+          
+            <Route exact path="/" render={(props)=> <HomeContainer posts={posts} {...props} />} />
+            <Route path="/posts" render={(props) => <ShowContainer posts={posts} {...props} />} />
+              <Route path="/search" component={SearchContainer} posts={posts} />
+              <Route exact path="/new" component={AddContainer} />
+          
+        </React.Fragment>
+        </Router>
       )
+    } else { 
+      return (
+        <Router>
+          <LoadingContainer /> 
+        </Router>
+      )
+    }
+    
   };
 }
 
-export default App
+function mapDispatchToProps(dispatch) {
+  return { fetchPosts: () => dispatch(fetchPosts()) }
+}
+
+function mapStateToProps(state) {
+  return { posts: state.posts, loading: state.loading }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

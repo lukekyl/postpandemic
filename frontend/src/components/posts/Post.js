@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 
 class Post extends Component {
@@ -11,12 +12,13 @@ class Post extends Component {
         const cardstyle = {
             width: '300px',
             left: position,
-            'animation-delay': delay
+            'animationDelay': delay
         }
         console.log(cardstyle)
 
         return (
-            <Card className={this.props.classes} style={cardstyle}>
+            <Link to={`posts/${post.id}`} post={post} >
+            <Card className={this.props.classes} style={cardstyle} >
                 <Card.Img variant="top" src={post.image + '?&fit=crop&w=300&h=150&q=80'} />
                 <Card.Body>
                     <Card.Title>{post.title}</Card.Title>
@@ -26,6 +28,7 @@ class Post extends Component {
                     {/* <Button variant="primary">Go somewhere</Button> */}
                 </Card.Body>
             </Card>
+            </Link>
         )
     };
 }
