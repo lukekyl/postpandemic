@@ -126,6 +126,11 @@ body{
   font-size: 60px;
 }
 
+.Hero_Wrapper {
+  text-align: center;
+  color: #fff;
+}
+
 .SearchContainer {
   width: 75%;
 }

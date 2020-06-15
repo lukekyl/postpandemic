@@ -1,41 +1,32 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { fetchPosts } from './actions/fetchPosts'
-import { Container } from 'react-bootstrap'
-import PostsContainer from './containers/posts/PostsContainer'
-import NavContainer from './containers/nav/NavContainer'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import HomeContainer from './containers/HomeContainer'
+import ShowContainer from './containers/show/ShowContainer'
+import SearchContainer from './containers/search/SearchContainer'
+import AddContainer from './containers/add/AddContainer'
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.fetchPosts()
-  }
-
+  
 
   render() {
 
-    let posts = this.props.posts
-
-    var size = 15;
-    var postSelection = posts.slice(0, size)
-
     return (
+      <Router>
       <React.Fragment>
-        <NavContainer/>
-        <h1 className="brand">postpandemic</h1>
-        {/* Add Hero Title Component - Probably a Bootstrap component? */}
-        <PostsContainer posts={postSelection} />
+        
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/posts" component={ShowContainer} />
+            <Route path="/search" component={SearchContainer} />
+            <Route exact path="/new" component={AddContainer} />
+        
       </React.Fragment>
+      </Router>
       )
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return { fetchPosts: () => dispatch(fetchPosts()) }
-}
-
-function mapStateToProps(state) {
-  return { posts: state.posts }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
