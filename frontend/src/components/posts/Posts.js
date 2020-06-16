@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { RouteComponentProps } from "react-router-dom";
 import Post from './Post'
 
 class Posts extends Component {
@@ -38,9 +37,9 @@ class Posts extends Component {
     render() {
         console.log('Adding Search Posts')
         return (
-            <div className="Posts">
+            <React.Fragment>
                 {this.postList()}
-            </div>
+            </React.Fragment>
         )
     };
 }

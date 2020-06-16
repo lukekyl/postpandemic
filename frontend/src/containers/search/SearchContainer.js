@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import SearchNav from '../nav/SearchNav'
 import Posts from '../../components/posts/Posts'
+import { CardColumns } from 'react-bootstrap'
 
 class SearchContainer extends Component {
     state = {
@@ -37,13 +38,18 @@ class SearchContainer extends Component {
             filterPosts = this.filterPosts(posts, this.state.term)
         }
         
-        const postsToDisplay = filterPosts ? filterPosts : posts
+        const postsResult = filterPosts ? filterPosts : posts
+        let size = 8;
+        let postsToDisplay = postsResult.slice(0, size)
+
         console.log(postsToDisplay)
         
         return (
             <div className="SearchContainer">
                 <SearchNav onSearch={this.handleSearch} />
+                <CardColumns className="SearchResults" >
                 <Route path={`${match.url}`} render={routerProps => <Posts posts={postsToDisplay} term={this.state.term} {...routerProps}  />} />
+                </CardColumns>
             </div>
         )
     };
