@@ -10,7 +10,7 @@ class HomeContainer extends Component {
         
         var size = 15;
         var postSelection = posts.slice(0, size)
-
+        
         return (
             <React.Fragment>
                 <NavContainer />

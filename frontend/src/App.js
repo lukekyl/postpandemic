@@ -24,12 +24,10 @@ class App extends Component {
       return (
         <Router>
         <React.Fragment>
-          
             <Route exact path="/" render={(props)=> <HomeContainer posts={posts} {...props} />} />
             <Route path="/posts" render={(props) => <ShowContainer posts={posts} {...props} />} />
-              <Route path="/search" component={SearchContainer} posts={posts} />
-              <Route exact path="/new" component={AddContainer} />
-          
+            <Route path="/search" render={(props) => <SearchContainer posts={posts} {...props} />} />
+            <Route exact path="/new" component={AddContainer} />
         </React.Fragment>
         </Router>
       )

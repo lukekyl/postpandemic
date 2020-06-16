@@ -18,7 +18,6 @@
 To Do:
 
 Home Page 
-    - Get animation timer down so no overlapping posts
     - filter posts by date before slice (newest)
     - add additional filters to filter bar
     - add any other additional info to cards (date, votes?)
@@ -34,3 +33,5 @@ Search Posts
 
 CSS
     - Post size on home page/show page in % vs px?
+    - Convert ShowPost component to just be the same as Post component? Might not want this...
+    - Transitions from float or search to show post

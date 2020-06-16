@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { } from 'react-bootstrap';
-import { Plus } from 'react-feather';
 
 
 class NavContainer extends Component {

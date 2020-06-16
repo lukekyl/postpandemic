@@ -5,13 +5,13 @@ class ShowPost extends Component {
     render() {
         const posts = this.props.posts
         const match = this.props.match
-        const matchId = parseInt(match.params.postId)
-        const post = posts.find(post => post.id === matchId)
+        const postId = parseInt(match.params.postId)
+        const post = posts.find(post => post.id === postId)
         console.log(post)
         return (
             <div className="ViewPost" >
                 <Card >
-                    <Card.Img variant="top" src={post.image + '?&fit=crop&w=300&h=150&q=80'} />
+                    <Card.Img variant="top" src={post.image + '?&fit=crop&w=900&h=450&q=80'} />
                     <Card.Body>
                         <Card.Title>{post.title}</Card.Title>
                         <Card.Text>

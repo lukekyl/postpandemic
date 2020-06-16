@@ -13,7 +13,7 @@ class NavContainer extends Component {
         return (
             <div className="Nav_Wrapper">
                 <Link to={`/`}><h5 className="brand Nav_Container Nav_Top Nav_Left">postpandemic</h5></Link>
-                <SearchBar classes="Nav_Container Nav_Top Nav_Right SearchHome" />
+                <Link to={'/search'}><SearchBar classes="Nav_Container Nav_Top Nav_Right SearchHome" /></Link>
                 <Button className="Nav_Container Nav_Right Nav_Bottom AddPost" variant="primary" size="lg"><Plus color="white" size={29} /><span> Add Post</span></Button>
                 <FilterBar classes="FilterBar Nav_Container Nav_Bottom Nav_Left" />
             </div>

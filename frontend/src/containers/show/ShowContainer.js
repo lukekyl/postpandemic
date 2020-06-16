@@ -7,7 +7,6 @@ import ShowPost from '../../components/posts/ShowPost'
 
 class ShowContainer extends Component {
     render() {
-
         const match = this.props.match
         const posts = this.props.posts
 

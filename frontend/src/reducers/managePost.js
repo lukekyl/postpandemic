@@ -1,4 +1,4 @@
-import uuid from 'react-uuid';
+// import uuid from 'react-uuid';
 
 export default function managePosts(state = {
     posts: [],
