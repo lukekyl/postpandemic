@@ -15,7 +15,6 @@ class Post extends Component {
         const { post } = this.props;
 
         const cardstyle = {
-            width: '300px',
             left: position,
             'animationDelay': delay
         }

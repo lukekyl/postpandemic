@@ -15,18 +15,18 @@ class AddPreview extends Component {
 
     render() {
         const { post } = this.props
-
-        const cardstyle = {
-            width: '300px',
+        
+        if (post.image) {
+            post.image = post.image + '?&fit=crop&w=300&h=150&q=80'
         }
 
         return (
-            <div>
+            <div className="PreviewContainer">
                 <h2>New Post Preview</h2>
-                <h4>Add Post If You Are Happy With Your Content!</h4>
+                <h6>Add Post If You Are Happy With Your Content!</h6>
                 <br />
-                <Card>
-                    <Card.Img variant="top" src={post.image + '?&fit=crop&w=300&h=150&q=80'} />
+                <Card className='PreviewCard'>
+                    <Card.Img variant="top" src={post.image} />
                     <Card.Body>
                         <Card.Title>{post.title}</Card.Title>
                         <Card.Text>
@@ -34,7 +34,8 @@ class AddPreview extends Component {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Button variant="primary" onClick={this.handleClick(post)}>Add Post</Button>
+                <br />
+                <Button variant="primary" onClick={() => this.handleClick(post)}>Add Post</Button>
             </div>
         )
     };

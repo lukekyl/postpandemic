@@ -30,15 +30,26 @@ export default function managePosts(state = {
                 loading: false
             }
 
+        case 'NEW_POST':
+            console.log('Adding Post...')
+
+            return {
+                ...state,
+                posts: [...state.posts],
+                loading: true
+            }    
+
         case 'ADD_POST':
 
+        console.log(action)
+
             const post = {
-                title: action.title,
-                image: action.image,
-                message: action.message,
-                date: action.date,
-                vote: action.vote,
-                id: action.id
+                title: action.post.title,
+                image: action.post.image,
+                message: action.post.message,
+                date: action.post.date,
+                vote: action.post.vote,
+                id: action.post.id
             }
 
             console.log(post)
@@ -49,7 +60,7 @@ export default function managePosts(state = {
         case 'LOADING_IMAGES':
 
             console.log('Loading Images...')
-
+            
             return {
                 ...state,
                 images: [...state.images]
@@ -57,19 +68,18 @@ export default function managePosts(state = {
 
         case 'DISPLAY_IMAGES':
 
-            let images = action.images
-
+            let images = action.images.results
+            // console.log(action)
+            // console.log(images)
+            if ( images.length > 9 ){
             let imageNum = 9
             images = images.slice(0, imageNum)
-            console.log(images)
+            }
+
             return {
                 ...state,
                 images: images
             }    
-
-        // case 'DELETE_RESTAURANT':
-
-        //     return { ...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
 
 
         // case 'ADD_REVIEW':

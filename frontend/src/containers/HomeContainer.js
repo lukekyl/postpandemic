@@ -7,9 +7,9 @@ class HomeContainer extends Component {
 
     render() {
         let posts = this.props.posts
-        
+        let newest = posts.reverse()
         var size = 15;
-        var postSelection = posts.slice(0, size)
+        var postSelection = newest.slice(0, size)
         
         return (
             <React.Fragment>

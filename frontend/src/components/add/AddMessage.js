@@ -29,8 +29,7 @@ class AddMessage extends Component {
         return (
             <div>
                 <h2>New Post</h2>
-                <h4>Insert Your Post Theme (One Word To Define Image Search)</h4>
-                <br />
+                <h6>Insert A Title and Message For Your Post</h6>
                 <Form className="ThemeForm" onSubmit={event => this.handleSubmit(event)} >
                     <InputGroup >
                         <FormControl
@@ -43,6 +42,7 @@ class AddMessage extends Component {
                     </InputGroup>
                     <InputGroup >
                         <FormControl
+                            as="textarea" rows="3"
                             placeholder="Insert Message"
                             aria-label="Message"
                             name='message'
@@ -50,6 +50,7 @@ class AddMessage extends Component {
                             value={this.state.message}
                         />
                     </InputGroup>
+                    <br />
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>
             </div>

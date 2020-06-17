@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchImages } from '../../actions/fetchImages';
 import { newPost } from '../../actions/newPost';
 import NavContainer from '../nav/NavContainer'
-import { Carousel } from 'react-bootstrap'
+import { Carousel, Button } from 'react-bootstrap'
 import AddTheme from '../../components/add/AddTheme'
 import AddImage from '../../components/add/AddImage'
 import AddMessage from '../../components/add/AddMessage'
@@ -15,23 +15,43 @@ class AddContainer extends Component {
         image: '',
         message: '',
         index: 0,
-        direction: 'next'
+        direction: null,
+        carouselItemCount: 4
         // date: 
         // vote: 
         // id: 
     }
 
-    handleSelectButton(index, direction) {
-        let newIndex = index + 1;
+    toggleCarousel = (direction) => {
+        let index = this.state.index
+        const [min, max] = [0, this.state.carouselItemCount - 1]
+
+        if (direction === 'next') {
+            index++
+
+        }
+        else if (direction === 'prev') {
+            index--
+        }
+
+        if (index > max) {
+            // at max, start from top
+            index = 0
+        }
+
+        if (index < min) {
+            // at min, start from max
+            index = max
+        }
         this.setState({
-            index: newIndex,
-            direction: direction
-        });
+            direction,
+            index
+        })
     }
 
     handleSearch = theme => {
         this.props.fetchImages(theme)
-        this.handleSelectButton(this.state.index, 'next')
+        this.toggleCarousel('next')
     }
 
 
@@ -42,7 +62,7 @@ class AddContainer extends Component {
         this.setState({
             image: url
         })
-        this.handleSelectButton(this.state.index, 'next')
+        this.toggleCarousel('next')
     }
 
     handleMessageSubmit = props => {
@@ -50,12 +70,12 @@ class AddContainer extends Component {
             title: props.title,
             message: props.message
         })
-        this.handleSelectButton(this.state.index, 'next')
+        this.toggleCarousel('next')
     }
 
     handleSubmit = props => {
         console.log(props)
-        // this.props.newPost(props)
+        this.props.newPost(props)
     }
 
     render() {
@@ -63,6 +83,7 @@ class AddContainer extends Component {
         return (
             <React.Fragment>
                 <NavContainer />
+                <div className="CarouselContainer">
                 <Carousel className="AddContainer" interval={null} controls={false} activeIndex={this.state.index} direction={this.state.direction} onSelect={(i, e) => this.handleSelect(i, e)} >
                     <Carousel.Item>
                         <AddTheme onSearch={this.handleSearch} />
@@ -77,13 +98,17 @@ class AddContainer extends Component {
                         <AddPreview post={this.state} onSubmit={this.handleSubmit} />
                     </Carousel.Item>
                 </Carousel>
+                <div className="CarouselNav">
+                    <Button aria-hidden="true" variant="outline-primary" className="left" onClick={() => this.toggleCarousel('prev')} >Back</Button><Button aria-hidden="true" variant="outline-primary" className="right" onClick={() => this.toggleCarousel('next')} >Next</Button>
+                </div>
+                </div>
                 </React.Fragment>
         )
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return { fetchImages: () => dispatch(fetchImages()), newPost: () => dispatch(newPost()) }
+    return { fetchImages: (props) => dispatch(fetchImages(props)), newPost: (props) => dispatch(newPost(props)) }
 }
 
 function mapStateToProps(state) {

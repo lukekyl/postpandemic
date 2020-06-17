@@ -25,8 +25,7 @@ class AddImage extends Component {
         return (
             <div>
                 <h2>New Post</h2>
-                <h4>Select The Image You Would Like To Use</h4>
-                <br />
+                <h6>Select The Image You Would Like To Use</h6>
                 <CardColumns>
                     {this.renderImages(images)}
                 </CardColumns>

@@ -68,6 +68,10 @@ body{
     place-items: center;
 }
 
+.PostsContainer .Post {
+  width:18%;
+}
+
 
 .Post {
   overflow:hidden;
@@ -157,6 +161,7 @@ body{
 
 .SearchResults .Post {
   display: inline-block;
+  width:90%
 }
 
 .Nav_Wrapper .brand {
@@ -190,25 +195,78 @@ body{
   left: -5px;
 }
 
+.CarouselContainer {
+  display:flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 50vw;
+  height:70vh;
+  background-color: white;
+  border-radius: 4px;
+}
+
 .AddContainer {
   display:flex;
   flex-wrap: nowrap;
   align-content: center;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   text-align: center;
-  width: 50vw;
-  height:60vh;
-  background-color: white;
-  border-radius: 4px;
+  display:flex;
+  width: 100%;
+  height:100%;
 }
 
 .AddContainer .carousel-indicators li{
-  background-color: black;
+  background-color: #007bff;
+  cursor: initial;
+  pointer-events:none;
 }
 
-.AddContainer .carousel-control-prev-icon, .AddContainer .carousel-control-next-icon {
-  background-color:black;
+
+.AddContainer .carousel-inner {
+  height:100%;
+  padding:5%;
+}
+
+.AddContainer form {
+  margin-top:10%;
+}
+
+.AddContainer form > * {
+  margin: 2.5% 0;
+}
+
+.AddContainer .card-columns {
+  grid-column-gap: .5rem;
+  column-gap: .5rem;
+}
+.AddContainer .card-columns .card {
+  width:100%;
+  cursor: pointer;
+}
+
+.AddContainer .PreviewCard {
+  width:40%;
+  margin:auto;
+}
+.CarouselContainer .CarouselNav {
+  position: absolute;
+  bottom: 16vh;
+}
+.CarouselNav .left {
+  position: absolute;
+  bottom:0px;
+  right: 20vw;
+}
+
+.CarouselNav .right {
+  position: absolute;
+  bottom:0;
+  left: 20vw;
 }
 
 /*  Post Falling Animation  */

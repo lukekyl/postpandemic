@@ -27,7 +27,7 @@ class AddTheme extends Component {
         return (
             <div>
                 <h2>New Post</h2>
-                <h4>Insert Your Post Theme (One Word To Define Image Search)</h4>
+                <h6>Insert Your Post Theme (One Word To Define Image Search)</h6>
                 <br />
                 <Form className="ThemeForm" onSubmit={event => this.handleSubmit(event)} >
                     <InputGroup >
@@ -37,10 +37,9 @@ class AddTheme extends Component {
                             onChange={event => this.handleChange(event)}
                             value={this.state.theme}
                         />
-                        <InputGroup.Append>
-                            <Button variant="primary" type="submit">Submit</Button>
-                        </InputGroup.Append>
                     </InputGroup>
+                    <br />
+                    <Button variant="primary" type="submit">Submit</Button>
                 </Form>
             </div>
         )
