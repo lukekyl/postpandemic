@@ -2,7 +2,8 @@
 
 export default function managePosts(state = {
     posts: [],
-    loading: false
+    loading: false,
+    images: []
 }, action) {
 
 
@@ -43,6 +44,28 @@ export default function managePosts(state = {
             console.log(post)
 
             return { ...state, posts: [...state.posts, post], loading: false }
+
+
+        case 'LOADING_IMAGES':
+
+            console.log('Loading Images...')
+
+            return {
+                ...state,
+                images: [...state.images]
+            }
+
+        case 'DISPLAY_IMAGES':
+
+            let images = action.images
+
+            let imageNum = 9
+            images = images.slice(0, imageNum)
+            console.log(images)
+            return {
+                ...state,
+                images: images
+            }    
 
         // case 'DELETE_RESTAURANT':
 

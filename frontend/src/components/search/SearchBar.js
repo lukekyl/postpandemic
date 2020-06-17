@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { Search } from 'react-feather';
 
 class SearchBar extends Component {
     state = {
@@ -29,7 +30,7 @@ class SearchBar extends Component {
                 <Form onSubmit={event => this.handleSubmit(event)} >
                 <InputGroup className="Search" >
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="searchicon">@</InputGroup.Text>
+                            <InputGroup.Text id="searchicon"><Search /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
                             placeholder="Search"

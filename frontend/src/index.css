@@ -99,14 +99,6 @@ body{
     z-index: 50;
 }
 
-.Nav_Wrapper .brand {
-  font-size: 20px;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
 .Nav_Top {
   top: 0;
 }
@@ -133,6 +125,11 @@ body{
 
 .Nav_Search_Middle {
   right: 20%;
+}
+
+.Search {
+  background-color:white;
+  border-radius: 4px;
 }
 
 .SearchContainer {
@@ -162,6 +159,14 @@ body{
   display: inline-block;
 }
 
+.Nav_Wrapper .brand {
+  font-size: 20px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
 .brand {
   font-family: Arial, Helvetica, sans-serif;
   font-stretch: expanded;
@@ -183,6 +188,27 @@ body{
   position: relative;
   top: -2px;
   left: -5px;
+}
+
+.AddContainer {
+  display:flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  width: 50vw;
+  height:60vh;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.AddContainer .carousel-indicators li{
+  background-color: black;
+}
+
+.AddContainer .carousel-control-prev-icon, .AddContainer .carousel-control-next-icon {
+  background-color:black;
 }
 
 /*  Post Falling Animation  */
