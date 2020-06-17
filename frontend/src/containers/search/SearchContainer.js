@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     Route
 } from 'react-router-dom';
-import SearchNav from '../nav/SearchNav'
+import OtherNav from '../nav/OtherNav'
 import Posts from '../../components/posts/Posts'
 import { CardColumns } from 'react-bootstrap'
 
@@ -46,7 +46,7 @@ class SearchContainer extends Component {
         
         return (
             <div className="SearchContainer">
-                <SearchNav onSearch={this.handleSearch} />
+                <OtherNav onSearch={this.handleSearch} />
                 <CardColumns className="SearchResults" >
                 <Route path={`${match.url}`} render={routerProps => <Posts posts={postsToDisplay} term={this.state.term} {...routerProps}  />} />
                 </CardColumns>

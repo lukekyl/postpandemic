@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchImages } from '../../actions/fetchImages';
 import { newPost } from '../../actions/newPost';
-import NavContainer from '../nav/NavContainer'
+import OtherNav from '../nav/OtherNav'
 import { Carousel, Button } from 'react-bootstrap'
 import AddTheme from '../../components/add/AddTheme'
 import AddImage from '../../components/add/AddImage'
@@ -81,10 +81,9 @@ class AddContainer extends Component {
     render() {
         console.log(this.state)
         return (
-            <React.Fragment>
-                <NavContainer />
-                <div className="CarouselContainer">
-                <Carousel className="AddContainer" interval={null} controls={false} activeIndex={this.state.index} direction={this.state.direction} onSelect={(i, e) => this.handleSelect(i, e)} >
+            <div className="AddContainer">
+                <OtherNav />
+                <Carousel className="AddCarousel" interval={null} controls={false} activeIndex={this.state.index} direction={this.state.direction} onSelect={(i, e) => this.handleSelect(i, e)} >
                     <Carousel.Item>
                         <AddTheme onSearch={this.handleSearch} />
                     </Carousel.Item>
@@ -101,8 +100,7 @@ class AddContainer extends Component {
                 <div className="CarouselNav">
                     <Button aria-hidden="true" variant="outline-primary" className="left" onClick={() => this.toggleCarousel('prev')} >Back</Button><Button aria-hidden="true" variant="outline-primary" className="right" onClick={() => this.toggleCarousel('next')} >Next</Button>
                 </div>
-                </div>
-                </React.Fragment>
+            </div>
         )
     };
 }
