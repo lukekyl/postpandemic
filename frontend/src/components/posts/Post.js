@@ -9,14 +9,15 @@ class Post extends Component {
         if (this.props.classes) {
             classes = this.props.classes
         }
-        
         let position = this.props.position
         let delay = this.props.delay
+        let animation = this.props.animation
         const { post } = this.props;
 
         const cardstyle = {
             left: position,
-            'animationDelay': delay
+            animation: animation,
+            animationDelay: delay
         }
         console.log(cardstyle)
 

@@ -279,7 +279,7 @@ body{
 .Float_Posts {
   position: absolute;
   top: -50%;
-  animation: move 60s linear infinite;
+  animation: none;
 }
 
 @keyframes move {
