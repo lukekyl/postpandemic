@@ -1,29 +1,31 @@
 # REACT/Redux Portfolio Project
 
-# *Post.*
-A Single Page Application For Online Ordering
+# *postpandemic*
+Messages of hope for a world recovering from the Coronavirus Pandemic.
 
 
 ## Introduction
-HellaFresh. is a single page application with a Ruby on Rails backend, and a Javascript frontend designed to help companies with having a functional online ordering system. This early build has sample seed data for a restaurant, and has a fully functional product and menu display system, along with a cart. The app allows a user to view the menu, and add items to and from their cart. Future expansion will allow for a company to create an admin account, upload products, and display the menu based on a metaprogrammed category builder. It will have full user login, and ordering functionality in a templated shell.
+TODO: Add Introduction For postpandemic...
 
 # Technologies
 This application make use of:
 * [Ruby on Rails v6](https://rubyonrails.org/)
 * [PostgreSQL](https://www.postgresql.org/)
-* [Foundation Framework](https://get.foundation/sites/docs/)
+* [React Bootstrap](https://react-bootstrap.github.io/)
 * [Javascript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [React JS Framework](https://reactjs.org/)
+* [Redux JS State Container](https://redux.js.org/)
+
 
 #Launch
 To launch and run HellaFresh.:
 * Clone the repo onto your local machine
-* ``` $ cd javascript-portfolio-project ```
+* ``` $ cd react-portfolio-project ```
 * ``` $ cd backend ```
 * ``` $ bundle install ```
 * ``` $ rake reset ```
-* ``` $ rails server ```
-* Run PostGres SQL application on local machine. (https://www.postgresql.org/download/)
-* From the "frontend" folder, open ```index.html``` in your web browser.
+* ``` $ rake start ```
+* Be sure to be running PostGres SQL application on local machine. (https://www.postgresql.org/download/)
 * Enjoy!
 
 # Additional Functionality
