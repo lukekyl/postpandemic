@@ -76,6 +76,8 @@ class AddContainer extends Component {
     handleSubmit = props => {
         console.log(props)
         this.props.newPost(props)
+        // How do I get this new post's id?
+        this.props.history.push(`/`);
     }
 
     render() {

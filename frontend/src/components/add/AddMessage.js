@@ -28,7 +28,7 @@ class AddMessage extends Component {
 
         return (
             <div>
-                <h2>New Post</h2>
+                <h2>Message</h2>
                 <h6>Insert A Title and Message For Your Post</h6>
                 <Form className="ThemeForm" onSubmit={event => this.handleSubmit(event)} >
                     <InputGroup >

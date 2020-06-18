@@ -22,7 +22,7 @@ class AddPreview extends Component {
 
         return (
             <div className="PreviewContainer">
-                <h2>New Post Preview</h2>
+                <h2>Preview</h2>
                 <h6>Add Post If You Are Happy With Your Content!</h6>
                 <br />
                 <Card className='PreviewCard'>

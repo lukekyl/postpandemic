@@ -26,7 +26,7 @@ class AddTheme extends Component {
 
         return (
             <div>
-                <h2>New Post</h2>
+                <h2>Theme</h2>
                 <h6>Insert Your Post Theme (One Word To Define Image Search)</h6>
                 <br />
                 <Form className="ThemeForm" onSubmit={event => this.handleSubmit(event)} >

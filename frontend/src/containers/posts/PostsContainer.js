@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Posts from '../../components/posts/Posts'
 
 class PostsContainer extends Component {
+    
     render() {
 
         let floaty = true;
