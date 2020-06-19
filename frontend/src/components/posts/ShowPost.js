@@ -11,11 +11,15 @@ class ShowPost extends Component {
     }
 
     handleVote = post => {
-        console.log('Voted!')
-        this.props.addVote(post.id)
-        this.setState({
-            hearted: true
-        })
+        if (this.state.hearted === false) {
+            console.log('Voted!')
+            this.props.addVote(post.id)
+            this.setState({
+                hearted: true
+            })
+        } else {
+            console.log('Already Voted!')
+        }
     }
 
     handleShare = event => {

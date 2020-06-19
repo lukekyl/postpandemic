@@ -169,7 +169,7 @@ body{
 }
 
 .SearchContainer .Searchbar {
-  width:75%;
+  width:76%;
   right: 0%;
 }
 
@@ -302,16 +302,16 @@ body{
 
 .Float_Posts {
   position: absolute;
-  top: -50%;
+  top: -55%;
   animation: none;
 }
 
 @keyframes move {
   from {
-    top: -50%;
+    top: -55%;
   }
   to {
-    top: 330%;
+    top: 325%;
   }
 }
 
