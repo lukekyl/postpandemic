@@ -20,7 +20,7 @@ class App extends Component {
   render() {
 
     let posts = this.props.posts
-    if (posts.length) {
+    if (posts.length > 0) {
       return (
         <Router>
         <React.Fragment>

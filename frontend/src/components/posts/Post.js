@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card'
+import { Card, Row, Col } from 'react-bootstrap';
+import { Heart } from 'react-feather';
 
 class Post extends Component {
     render() {
@@ -30,8 +31,14 @@ class Post extends Component {
                         <Card.Text>
                             {post.message}
                         </Card.Text>
-                        {/* <Button variant="primary">Go somewhere</Button> */}
+                        
                     </Card.Body>
+                    <Card.Footer className="text-muted">
+                        <Row>
+                            <Col><Heart /> {post.vote}</Col>
+                            <Col xs={7} className='date'>{post.date}</Col>
+                        </Row>
+                    </Card.Footer>
                 </Link>
             </Card>
         )

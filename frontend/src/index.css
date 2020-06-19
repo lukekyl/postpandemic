@@ -96,6 +96,19 @@ body{
   width:300px;
 }
 
+.Post svg {
+  position: relative;
+  top: -1px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
 
 .Nav_Container {
     position: fixed;

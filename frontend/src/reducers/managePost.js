@@ -81,17 +81,33 @@ export default function managePosts(state = {
                 images: images
             }    
 
+        case 'ADD_VOTE':
+            console.log('Adding New Vote...')
 
-        // case 'ADD_REVIEW':
+            return {
+                ...state,
+                posts: [...state.posts],
+                loading: true
+            }
 
-        //     console.log(action.restaurant)
+        case 'UPDATE_POST':
+            // console.log(action)
+            const index = state.posts.findIndex(post => post.id === action.post.id)
 
-        //     return { ...state, reviews: [...state.reviews, action.review] }
+            return {
+                ...state,
+                posts: [
+                ...state.posts.slice(0, index), // everything before current post
+                {
+                    ...state.posts[index] = action.post
+                },
+                ...state.posts.slice(index + 1), // everything after current post
+            ]
+            }
+
+            
 
 
-        // case 'DELETE_REVIEW':
-
-        //     return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
 
         default:
             return state;

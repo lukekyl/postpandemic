@@ -6,7 +6,12 @@ class PostsController < ApplicationController
     end
 
     def show
-
+        post = Post.find_by(id: params[:id])
+        if post
+            render json: post
+        else
+            render json: {message: 'Error! Post not found.'}
+        end
     end
 
     def create
@@ -25,6 +30,15 @@ class PostsController < ApplicationController
     end
 
     def update
+        post = Post.find_by(id: params[:postId])
+        puts post
+        post.vote += 1
+        puts post.vote
+        if post.save
+            render json: post
+        else
+            render json: {message: 'Error! Post could not be edited.'}
+        end
 
     end
 
