@@ -36,7 +36,7 @@ class Post extends Component {
                     <Card.Footer className="text-muted">
                         <Row>
                             <Col><Heart /> {post.vote}</Col>
-                            <Col xs={7} className='date'>{post.date}</Col>
+                            <Col xs={7} className='align-right'>{post.date}</Col>
                         </Row>
                     </Card.Footer>
                 </Link>

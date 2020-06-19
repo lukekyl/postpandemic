@@ -49,7 +49,7 @@ class ShowPost extends Component {
                     </Card.Body>
                     <Card.Footer className="text-muted">
                         <Row>
-                            <Col ><Heart /> {post.vote}</Col>
+                            <Col >{post.vote} like(s)</Col>
                             <Col className='align-center' onClick={() => this.handleVote(post)} ><Heart style={heartFill} /></Col> 
                             <Col className='align-center' onClick={event => this.handleShare(event)} >
                                 <EmailShareButton subject={'postpandemic: Message of Hope'} body={'Check out this post I found on postpandemic! Follow this link:'} separator={' '} url={window.location.href} >

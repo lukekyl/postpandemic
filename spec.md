@@ -17,21 +17,10 @@
 
 To Do:
 
-Home Page 
-    - filter posts by date before slice (newest)
-    - add additional filters to filter bar
-    - add any other additional info to cards (date, votes?)
-
-Show Page
-    - add any additional pieces to show container (back button, next post?)
-    - add votes count and add/remove vote button to card (add vote functionality to managePosts reducer)
-
-Add Post
-
-Search Posts
-
+- Do I want to update OtherNav at all?
+- Do I want to change the Hero based on post title I hover on?
+- Cursor change?
 
 CSS
     - Post size on home page/show page in % vs px?
-    - Convert ShowPost component to just be the same as Post component? Might not want this...
     - Transitions from float or search to show post
