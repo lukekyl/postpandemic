@@ -41,6 +41,7 @@ class HomeContainer extends Component {
                 return 0
             }
         })
+        sorted.reverse()
         this.setState({
             posts: sorted,
             update: true

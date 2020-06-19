@@ -21,6 +21,7 @@ class SearchContainer extends Component {
     }
 
     filterPosts = (posts, term) => {
+        term = term.toLocaleLowerCase()
         return posts.filter(
             post =>
                 post.message.toLocaleLowerCase().includes(term) ||
@@ -39,7 +40,7 @@ class SearchContainer extends Component {
         }
         
         const postsResult = filterPosts ? filterPosts : posts
-        let size = 8;
+        let size = 5;
         let postsToDisplay = postsResult.slice(0, size)
 
         console.log(postsToDisplay)

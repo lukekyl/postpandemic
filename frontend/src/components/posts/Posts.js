@@ -8,7 +8,7 @@ class Posts extends Component {
             let position
             let delay
             let positionArray = ['1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%']
-            let delayArray = ['12s', '4s', '16s', '8s', '0s', '32s', '24s', '36s', '28s', '20s', '52s', '44s', '56s', '48s', '40s']
+            let delayArray = ['0s', '8s', '16s', '4s', '12s', '20s', '28s', '36s', '24s', '40s', '52s', '48s', '56s', '44s', '32s']
             let animation = 'move 60s linear infinite'
             let i = 0
             

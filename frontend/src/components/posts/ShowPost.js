@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { EmailShareButton } from "react-share";
 import { addVote } from '../../actions/addVote';
 import { Card, Row, Col } from 'react-bootstrap';
 import { Heart, Send } from 'react-feather';
@@ -50,7 +51,11 @@ class ShowPost extends Component {
                         <Row>
                             <Col ><Heart /> {post.vote}</Col>
                             <Col className='align-center' onClick={() => this.handleVote(post)} ><Heart style={heartFill} /></Col> 
-                            <Col className='align-center' onClick={event => this.handleShare(event)} ><Send /></Col> 
+                            <Col className='align-center' onClick={event => this.handleShare(event)} >
+                                <EmailShareButton subject={'postpandemic: Message of Hope'} body={'Check out this post I found on postpandemic! Follow this link:'} separator={' '} url={window.location.href} >
+                                <Send />
+                                </EmailShareButton>
+                            </Col> 
                             <Col className='align-right'>{post.date}</Col>
                         </Row>
                     </Card.Footer>

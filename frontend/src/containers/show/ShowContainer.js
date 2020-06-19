@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     Route
 } from 'react-router-dom';
-import NavContainer from '../nav/NavContainer'
+import OtherNav from '../nav/OtherNav'
 import ShowPost from '../../components/posts/ShowPost'
 
 class ShowContainer extends Component {
@@ -12,7 +12,7 @@ class ShowContainer extends Component {
 
         return (
             <div className="ShowContainer">
-                <NavContainer />
+                <OtherNav />
                 <Route path={`${match.url}/:postId`} render={routerProps => <ShowPost posts={posts} {...routerProps} />} />
             </div>
         )
