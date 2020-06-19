@@ -21881,3 +21881,198 @@ Processing by PostsController#index as */*
 Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 3993)
 
 
+Started GET "/posts" for ::1 at 2020-06-19 16:08:35 -0600
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as */*
+  [1m[36mPost Load (7.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.01ms)
+Completed 200 OK in 39ms (Views: 20.6ms | ActiveRecord: 15.9ms | Allocations: 11444)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:12:02 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.6ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 4012)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:12:36 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.55ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 4012)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:14:50 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 4012)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:15:05 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.51ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 1.0ms | Allocations: 4012)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:15:23 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (4.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.7ms)
+Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 4.5ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:15:26 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.78ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 2.7ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:15:35 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.12ms)
+Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 2.8ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:15:57 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.06ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.8ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:16:00 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.94ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 1.1ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:17:39 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.06ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:17:48 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.89ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.6ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:18:05 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.17ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:18:19 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.98ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 3993)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:18:49 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.48ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.5ms | Allocations: 3993)
+
+
+Started PATCH "/posts/17" for ::1 at 2020-06-19 16:21:14 -0600
+Processing by PostsController#update as */*
+  Parameters: {"postId"=>17, "id"=>"17", "post"=>{}}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `update'
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[36mPost Update (1.1ms)[0m  [1m[33mUPDATE "posts" SET "vote" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["vote", 28], ["updated_at", "2020-06-19 22:21:14.738442"], ["id", 17]]
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 61ms (Views: 1.1ms | ActiveRecord: 16.5ms | Allocations: 5129)
+
+
+Started POST "/posts" for ::1 at 2020-06-19 16:25:09 -0600
+Processing by PostsController#create as */*
+  Parameters: {"post"=>{"title"=>"Promise For Support", "message"=>"I promise when we recover from this thing, that I will be there to support you. And also make sure you eat your damn veggies!", "image"=>"https://images.unsplash.com/photo-1569437061241-a848be43cc82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE0MjY1N30?&fit=crop&w=300&h=150&q=80?&fit=crop&w=300&h=150&q=80"}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:24:in `create'
+  [1m[36mPost Create (3.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "message", "image", "vote", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Promise For Support"], ["message", "I promise when we recover from this thing, that I will be there to support you. And also make sure you eat your damn veggies!"], ["image", "https://images.unsplash.com/photo-1569437061241-a848be43cc82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE0MjY1N30?&fit=crop&w=300&h=150&q=80?&fit=crop&w=300&h=150&q=80"], ["vote", 0], ["date", "2020-06-19 22:25:09.231778"], ["created_at", "2020-06-19 22:25:09.234366"], ["updated_at", "2020-06-19 22:25:09.234366"]]
+  ↳ app/controllers/posts_controller.rb:24:in `create'
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:24:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 30ms (Views: 1.3ms | ActiveRecord: 11.3ms | Allocations: 2843)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:25:25 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.92ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 1.3ms | Allocations: 4184)
+
+
+Started PATCH "/posts/18" for ::1 at 2020-06-19 16:25:59 -0600
+Processing by PostsController#update as */*
+  Parameters: {"postId"=>18, "id"=>"18", "post"=>{}}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[36mPost Update (0.9ms)[0m  [1m[33mUPDATE "posts" SET "vote" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["vote", 1], ["updated_at", "2020-06-19 22:25:59.972899"], ["id", 18]]
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 20ms (Views: 1.1ms | ActiveRecord: 8.7ms | Allocations: 3064)
+
+
+Started PATCH "/posts/18" for ::1 at 2020-06-19 16:26:11 -0600
+Processing by PostsController#update as */*
+  Parameters: {"postId"=>18, "id"=>"18", "post"=>{}}
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "vote" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["vote", 2], ["updated_at", "2020-06-19 22:26:11.068985"], ["id", 18]]
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:37:in `update'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 8.9ms | Allocations: 3061)
+
+
+Started GET "/posts" for ::1 at 2020-06-19 16:29:43 -0600
+Processing by PostsController#index as */*
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.99ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.2ms | Allocations: 4182)
+
+
