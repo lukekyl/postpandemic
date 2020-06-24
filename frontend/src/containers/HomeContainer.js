@@ -5,8 +5,7 @@ import Hero from '../components/hero/Hero'
 
 class HomeContainer extends Component {
     state = {
-        posts: this.props.posts,
-        update: false
+        posts: this.props.posts
     }
 
     sortById = (posts) => {
@@ -24,9 +23,7 @@ class HomeContainer extends Component {
         sorted.reverse()
         this.setState({
             posts: sorted,
-            update: true
         })
-        this.forceUpdate();
     }
 
     sortByVote = (posts) => {
@@ -44,9 +41,7 @@ class HomeContainer extends Component {
         sorted.reverse()
         this.setState({
             posts: sorted,
-            update: true
         })
-        this.forceUpdate();
     }
 
     handleFilter = (value) => {
@@ -63,13 +58,7 @@ class HomeContainer extends Component {
         }
     }
 
-    handleUpdate = props => {
-        if (props===true) {
-            this.setState ({
-                update: false
-            })
-        }
-    }
+
 
     render() {
         let postSelection = this.state.posts
@@ -83,7 +72,7 @@ class HomeContainer extends Component {
             <React.Fragment>
                 <NavContainer onFilter={this.handleFilter} />
                 <Hero />
-                <PostsContainer posts={postSelection} shouldUpdate={this.state.update} haveUpdated={this.handleUpdate} />
+                <PostsContainer posts={postSelection}/>
             </React.Fragment>
         )
     };
