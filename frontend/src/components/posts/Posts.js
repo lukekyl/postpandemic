@@ -35,10 +35,6 @@ class Posts extends Component {
     
 
     render() {
-        // if ( this.props.shouldUpdate === true ) {
-        //     this.forceUpdate()
-        //     return this.props.haveUpdated(true)
-        // }
         
 
         return (
