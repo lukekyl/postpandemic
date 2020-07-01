@@ -41,6 +41,7 @@ class ShowPost extends Component {
         const postId = parseInt(match.params.postId)
         const post = posts.find(post => post.id === postId)
         console.log(post)
+        console.log(match)
         return (
             <div className="ViewPost" >
                 <Card >

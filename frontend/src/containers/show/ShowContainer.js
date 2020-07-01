@@ -9,7 +9,7 @@ class ShowContainer extends Component {
     render() {
         const match = this.props.match
         const posts = this.props.posts
-
+        console.log(match)
         return (
             <div className="ShowContainer">
                 <OtherNav />
