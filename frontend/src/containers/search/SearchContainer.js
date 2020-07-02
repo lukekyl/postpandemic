@@ -21,11 +21,11 @@ class SearchContainer extends Component {
     }
 
     filterPosts = (posts, term) => {
-        term = term.toLocaleLowerCase()
+        term = term.toLowerCase()
         return posts.filter(
             post =>
-                post.message.toLocaleLowerCase().includes(term) ||
-                post.title.toLocaleLowerCase().includes(term)
+                post.message.toLowerCase().includes(term) ||
+                post.title.toLowerCase().includes(term)
         );
     }
 
