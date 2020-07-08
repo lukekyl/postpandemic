@@ -1,6 +1,6 @@
 export function addVote(props) {
     let postId = props
-
+    // const railsURL = 'http://localhost:3001'
     // console.log(props)
 
     const configPost = {
@@ -15,7 +15,7 @@ export function addVote(props) {
 
     return (dispatch) => {
         dispatch({ type: 'ADD_VOTE' })
-        fetch(`http://localhost:3001/posts/${postId}`, configPost)
+        fetch(`${railsURL}/posts/${postId}`, configPost)
             .then(response => response.json())
             .then(upatedPost => {
                 return dispatch({ type: 'UPDATE_POST', post: upatedPost })

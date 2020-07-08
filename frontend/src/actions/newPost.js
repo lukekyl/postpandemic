@@ -1,5 +1,6 @@
 export function newPost(props) {
     let post = props
+    // const railsURL = 'http://localhost:3001'
 
     console.log(props)
 
@@ -17,7 +18,7 @@ export function newPost(props) {
 
     return (dispatch) => {
         dispatch({ type: 'NEW_POST' })
-        fetch('http://localhost:3001/posts', configPost)
+        fetch(`${railsURL}/posts`, configPost)
             .then(response => response.json())
             .then(newPost => {
                 return dispatch({ type: 'ADD_POST', post: newPost })
