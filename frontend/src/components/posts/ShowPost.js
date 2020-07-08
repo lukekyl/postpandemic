@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { EmailShareButton } from "react-share";
 import { addVote } from '../../actions/addVote';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import { Heart, Send } from 'react-feather';
 
 class ShowPost extends Component {
     state = {
         hearted: false
     }
+
+
 
     handleVote = post => {
         if (this.state.hearted === false) {

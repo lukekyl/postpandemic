@@ -24,3 +24,4 @@ To Do:
 CSS
     - Post size on home page/show page in % vs px?
     - Transitions from float or search to show post
+

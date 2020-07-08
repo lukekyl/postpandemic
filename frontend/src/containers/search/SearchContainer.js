@@ -13,7 +13,7 @@ class SearchContainer extends Component {
 
     posts = this.props.posts
     
-    handleSearch = props => {
+    handleSearch(props) {
         this.setState({
             term: props
         })
@@ -47,7 +47,7 @@ class SearchContainer extends Component {
         
         return (
             <div className="SearchContainer">
-                <OtherNav onSearch={this.handleSearch} />
+                <OtherNav onSearch={ this.handleSearch.bind(this) } />
                 <CardColumns className="SearchResults" >
                 <Route path={`${match.url}`} render={routerProps => <Posts posts={postsToDisplay} term={this.state.term} {...routerProps}  />} />
                 </CardColumns>
