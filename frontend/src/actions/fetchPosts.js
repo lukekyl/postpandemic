@@ -1,5 +1,5 @@
 export function fetchPosts() {
-    const railsURL = 'http://localhost:3001'
+    // const railsURL = 'http://localhost:3001'
 
     return (dispatch) => {
         dispatch({ type: 'LOADING_POSTS' })
