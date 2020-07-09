@@ -18,7 +18,7 @@ export function newPost(props) {
 
     return (dispatch) => {
         dispatch({ type: 'NEW_POST' })
-        fetch(`${railsURL}/posts`, configPost)
+        fetch(`/posts`, configPost)
             .then(response => response.json())
             .then(newPost => {
                 return dispatch({ type: 'ADD_POST', post: newPost })

@@ -15,7 +15,7 @@ export function addVote(props) {
 
     return (dispatch) => {
         dispatch({ type: 'ADD_VOTE' })
-        fetch(`${railsURL}/posts/${postId}`, configPost)
+        fetch(`/posts/${postId}`, configPost)
             .then(response => response.json())
             .then(upatedPost => {
                 return dispatch({ type: 'UPDATE_POST', post: upatedPost })
