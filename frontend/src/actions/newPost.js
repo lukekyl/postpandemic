@@ -1,6 +1,5 @@
 export function newPost(props) {
     let post = props
-    // const railsURL = 'http://localhost:3001'
 
     console.log(props)
 
@@ -16,6 +15,18 @@ export function newPost(props) {
 
     console.log(configPost)
 
+    //Dev Mode
+    // const railsURL = 'http://localhost:3001'
+    // return (dispatch) => {
+    //     dispatch({ type: 'NEW_POST' })
+    //     fetch(`${railsURL}/posts`, configPost)
+    //         .then(response => response.json())
+    //         .then(newPost => {
+    //             return dispatch({ type: 'ADD_POST', post: newPost })
+    //         })
+    // }
+
+    //Heroku Deployment Mode
     return (dispatch) => {
         dispatch({ type: 'NEW_POST' })
         fetch(`/posts`, configPost)
@@ -24,4 +35,5 @@ export function newPost(props) {
                 return dispatch({ type: 'ADD_POST', post: newPost })
             })
     }
+
 }
