@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../../components/search/SearchBar'
 import FilterBar from '../../components/search/FilterBar'
 import { Button } from 'react-bootstrap'
-import {  } from 'react-bootstrap';
 import { Plus } from 'react-feather';
 
 
