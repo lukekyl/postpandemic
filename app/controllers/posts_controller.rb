@@ -19,7 +19,7 @@ class PostsController < ApplicationController
         vote = 0
         date = Time.now
         date.strftime("%B %d, %Y")
-        # date = '2020, 5, 31'
+        # date = 'May 31, 2020'
 
         post = Post.create(title: params[:post][:title], message: params[:post][:message], image: params[:post][:image], date: date, vote: vote)
         if post.save
