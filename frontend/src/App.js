@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import Perf from "react-addons-perf"; // Benchmarking
 import LoadingContainer from './containers/LoadingContainer'
 import HomeContainer from './containers/HomeContainer'
 import ShowContainer from './containers/show/ShowContainer'
