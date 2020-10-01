@@ -15,7 +15,14 @@ import AddContainer from './containers/add/AddContainer'
 class App extends Component {
 
   componentDidMount() {
+    Perf.start();
     this.props.fetchPosts()
+  }
+
+  componentDidUpdate() {
+    Perf.stop()
+    Perf.printInclusive()
+    Perf.printWasted()
   }
 
   render() {

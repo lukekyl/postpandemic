@@ -13,25 +13,25 @@ export function addVote(props) {
         })
     };
 
-    //Dev Mode
-    // const railsURL = 'http://localhost:3001'
-    // return (dispatch) => {
-    //     dispatch({ type: 'ADD_VOTE' })
-    //     fetch(`${railsURL}/posts/${postId}`, configPost)
-    //         .then(response => response.json())
-    //         .then(upatedPost => {
-    //             return dispatch({ type: 'UPDATE_POST', post: upatedPost })
-    //         })
-    // }
-
-
-    // Heroko Deployment Mode
+    // Dev Mode
+    const railsURL = 'http://localhost:3001'
     return (dispatch) => {
         dispatch({ type: 'ADD_VOTE' })
-        fetch(`/posts/${postId}`, configPost)
+        fetch(`${railsURL}/posts/${postId}`, configPost)
             .then(response => response.json())
             .then(upatedPost => {
                 return dispatch({ type: 'UPDATE_POST', post: upatedPost })
             })
     }
+
+
+    // // Heroko Deployment Mode
+    // return (dispatch) => {
+    //     dispatch({ type: 'ADD_VOTE' })
+    //     fetch(`/posts/${postId}`, configPost)
+    //         .then(response => response.json())
+    //         .then(upatedPost => {
+    //             return dispatch({ type: 'UPDATE_POST', post: upatedPost })
+    //         })
+    // }
 }
