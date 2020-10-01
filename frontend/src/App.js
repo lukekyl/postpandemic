@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import Perf from "react-addons-perf"; // Benchmarking
+
 import LoadingContainer from './containers/LoadingContainer'
 import HomeContainer from './containers/HomeContainer'
 import ShowContainer from './containers/show/ShowContainer'
@@ -15,14 +15,7 @@ import AddContainer from './containers/add/AddContainer'
 class App extends Component {
 
   componentDidMount() {
-    Perf.start();
     this.props.fetchPosts()
-  }
-
-  componentDidUpdate() {
-    Perf.stop()
-    Perf.printInclusive()
-    Perf.printWasted()
   }
 
   render() {
