@@ -22,6 +22,9 @@ To Do:
 - Cursor change?
 
 CSS
-    - Post size on home page/show page in % vs px?
-    - Transitions from float or search to show post
+- Post size on home page/show page in % vs px?
+- Transitions from float or search to show post
 
+Addons
+- Write tests for main features (Fetch Posts, Create Post, Add Like)
+- Benchmark functions
