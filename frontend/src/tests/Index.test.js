@@ -1,3 +1,7 @@
+// https://www.npmjs.com/package/redux-mock-store
+// https://willowtreeapps.com/ideas/best-practices-for-unit-testing-with-a-react-redux-approach
+
+
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
@@ -32,16 +36,10 @@ function success() {
 }
  
 function fetchData () {
-  //Dev Mode
-  const railsURL = "http://localhost:3001";
-  return (dispatch) => {
-    dispatch({ type: "LOADING_POSTS" });
-    fetch(`${railsURL}/posts`)
-      .then((response) => response.json())
-      .then((postArray) => {
-        console.log(postArray)
-        return dispatch(success());
-      });
+  //First run 'bundle exec rails s -p 3001' while in backend before testing
+  return dispatch => {
+    return fetch(`http://localhost:3001/posts`, {mode: 'no-cors',})
+      .then(() => dispatch(success()));
   }
 }
 
