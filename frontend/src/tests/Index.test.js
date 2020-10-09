@@ -21,3 +21,37 @@ it('should dispatch action', () => {
   const expectedPayload = { type: 'ADD_POST' }
   expect(actions).toEqual([expectedPayload])
 })
+
+
+
+// You would import the action from your codebase in a real scenario
+function success() {
+  return {
+    type: 'FETCH_DATA_SUCCESS'
+  }
+}
+ 
+function fetchData () {
+  //Dev Mode
+  const railsURL = "http://localhost:3001";
+  return (dispatch) => {
+    dispatch({ type: "LOADING_POSTS" });
+    fetch(`${railsURL}/posts`)
+      .then((response) => response.json())
+      .then((postArray) => {
+        console.log(postArray)
+        return dispatch(success());
+      });
+  }
+}
+
+it('should execute fetch data', () => {
+  const store = mockStore({})
+ 
+  // Return the promise
+  return store.dispatch(fetchData())
+    .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual(success())
+    })
+})
