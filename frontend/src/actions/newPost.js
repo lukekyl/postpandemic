@@ -16,23 +16,23 @@ export function newPost(props) {
   console.log(configPost);
 
   // //Heroku Deployment Mode
-  // return (dispatch) => {
-  //   dispatch({ type: "NEW_POST" });
-  //   fetch(`/posts`, configPost)
-  //     .then((response) => response.json())
-  //     .then((newPost) => {
-  //       return dispatch({ type: "ADD_POST", post: newPost });
-  //     });
-  // };
+  return (dispatch) => {
+    dispatch({ type: "NEW_POST" });
+    fetch(`/posts`, configPost)
+      .then((response) => response.json())
+      .then((newPost) => {
+        return dispatch({ type: "ADD_POST", post: newPost });
+      });
+  };
 
   // Dev Mode
-  const railsURL = 'http://localhost:3001'
-  return (dispatch) => {
-      dispatch({ type: 'NEW_POST' })
-      fetch(`${railsURL}/posts`, configPost)
-          .then(response => response.json())
-          .then(newPost => {
-              return dispatch({ type: 'ADD_POST', post: newPost })
-          })
-  }
+  // const railsURL = 'http://localhost:3001'
+  // return (dispatch) => {
+  //     dispatch({ type: 'NEW_POST' })
+  //     fetch(`${railsURL}/posts`, configPost)
+  //         .then(response => response.json())
+  //         .then(newPost => {
+  //             return dispatch({ type: 'ADD_POST', post: newPost })
+  //         })
+  // }
 }
