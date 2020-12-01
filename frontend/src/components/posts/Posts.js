@@ -8,8 +8,8 @@ class Posts extends Component {
             let position
             let delay
             let positionArray = ['1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%', '1%', '21%', '41%', '61%', '81%']
-            let delayArray = ['0s', '8s', '16s', '4s', '12s', '20s', '28s', '36s', '24s', '40s', '52s', '48s', '56s', '44s', '32s']
-            let animation = 'move 50s linear infinite'
+            let delayArray = ['0s', '4s', '8s', '2s', '6s', '10s', '14s', '18s', '12s', '20s', '26s', '24s', '28s', '22s', '16s']
+            let animation = 'move 30s linear infinite'
             let i = 0
             
             return this.props.posts.map(post => {
