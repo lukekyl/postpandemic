@@ -309,7 +309,7 @@ body{
 @keyframes move {
   from {
     top: -60%;
-    opacity: .8;
+    opacity: 1;
   }
   to {
     top: 110%;
