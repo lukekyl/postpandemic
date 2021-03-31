@@ -1,5 +1,7 @@
 # REACT/Redux Portfolio Project
 
+![postpandemic Screenshot](https://github.com/lukekyl/postpandemic/blob/master/frontend/public/postpandemic_screenshot.png)
+
 # *postpandemic*
 Messages of hope for a world recovering from the Coronavirus Pandemic.
 
