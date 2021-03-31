@@ -1,10 +1,7 @@
-# REACT/Redux Portfolio Project
-
-![postpandemic Screenshot](https://github.com/lukekyl/postpandemic/blob/master/frontend/public/postpandemic_screenshot.png)
-
 # *postpandemic*
 Messages of hope for a world recovering from the Coronavirus Pandemic.
 
+![postpandemic Screenshot](https://github.com/lukekyl/postpandemic/blob/master/frontend/public/postpandemic_screenshot.png)
 
 ## Introduction
 Postpandemic is a single page application written with Javascript, using the React library and making use of Redux. It uses a Rails backend, and has a PostgreSql database to hold posts. Postpandemic was created while much of the world remains in lockdown during the Coronavirus Pandemic. The world is dealing with boredom, pain, death, equality protests, political and other divide, and through it all shines the occasional glimmer of hope and love. Postpandemic is an online app with the goal of being an avenue for people to view and post positive messages of love and hope for the world as it recovers from the Coronavirus Pandemic.
